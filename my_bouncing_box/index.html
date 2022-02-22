@@ -1,0 +1,53 @@
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; 
+  border-radius: 3px; position: absolute; left: 0px; top: 0px; 
+  min-width: 100px; min-height: 100px; text-align: center; 
+  font-weight: bold; color: #999;" >oriola_t</div>
+  <script type="text/javascript">
+    
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight;
+    
+    var boxWidth = document.getElementById('my_bouncing_box').clientWidth;
+    var boxHeight = document.getElementById('my_bouncing_box').clientHeight;
+
+    var theTop = 0;
+    var theLeft = 0;
+
+    var x = setInterval(function(){
+        box = document.getElementById('my_bouncing_box');
+
+        if(theTop){
+            box.style.top = (parseInt(box.style.top)- 1)+ "px";
+        }
+        else{
+            box.style.top = (parseInt(box.style.top)+ 1)+ "px";
+        }
+
+        if(theLeft){
+            box.style.left = (parseInt(box.style.left)- 1)+ "px";
+        }
+        else{
+            box.style.left = (parseInt(box.style.left)+ 1)+ "px";
+        }
+
+        if(parseInt(box.style.top) == 0){
+            theTop = 0;
+        }
+
+        if(parseInt(box.style.left) == 0){
+            theLeft = 0;
+        }
+
+        if(parseInt(box.style.top) == (screenHeight - boxHeight)){
+            theTop = 1;
+        }
+
+        if(parseInt(box.style.left) == (screenWidth - boxWidth)){
+            theLeft = 1;
+        }
+
+    }, 30)
+
+  </script>
+</html>
