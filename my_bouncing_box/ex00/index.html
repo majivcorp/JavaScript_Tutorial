@@ -1,0 +1,32 @@
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >normato_az</div>
+  <script type="text/javascript">
+    const box = document.querySelector('#my_bouncing_box');
+    box.innerHTML = 'normato_az'
+    const fps = 25
+    const body = document.querySelector('body')
+    body.style.height = window.innerHeight + 'px'
+    body.style.width = window.innerWidth + 'px'
+
+    let xPosition = 1
+    let yPosition = 1
+    let xSpeed = 4
+    let ySpeed = 4
+    function update() {
+        box.style.left = xPosition + 'px'
+        box.style.top = yPosition + 'px'
+    }
+    setInterval(() => {
+        if (xPosition + box.clientWidth >= window.innerWidth || xPosition <= 0){
+            xSpeed = -xSpeed
+        }
+        if (yPosition + box.clientHeight>= window.innerHeight || yPosition <= 0){
+            ySpeed = -ySpeed
+        }
+        xPosition += xSpeed
+        yPosition += ySpeed
+        update()
+    }, 1000/fps)
+  </script>
+</html>
+
